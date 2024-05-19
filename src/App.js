@@ -1,100 +1,101 @@
-// 경고메세지 없애는 법 ->  /* eslint-disable */
-
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
+import {  Navbar, Container , Nav } from 'react-bootstrap'; //대문자로 된 컴포넌트 다 import 해야 함
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
+import Etc from './routes/Etc.js'
+import About from './routes/About.js'
+import Detail from './routes/Detail.js'
+// import axios from 'axios';
+import Cart from './routes/Cart.js'
+import QA from './routes/QA.js';
+import Ship from './routes/Ship.js';
+import AS from './routes/AS.js';
+import Login from './routes/Login.js';
+import Footer from './Footer.js'
+
+
+
 
 function App() {
 
-  let [글제목 , 글제목변경] =  useState(['크러쉬 노래 추천' , '응암 맛집' , '송도 수플레']);
-  let [따봉 , 따봉변경] = useState([0 , 0 , 0]); // [따봉]-> state 담긴 내용 의미함 , [따봉변경]-> 따봉 변경할 때 따봉변경()으로 씀
-  let [modal , setModal] = useState(false);  
-  let [title , setTitle] = useState(0);
-  let [입력값 ,  입력값변경] = useState('');
-
-  //자주 변경 -> state (자동 렌더링 됨)
-
+  let [shop] = useState();
+  let navigate = useNavigate();
 
   return (
-    <div className="App">
-      <div className='black-nav'>
-        <h4>ReactBlog</h4>
-      </div>
-      
-      {/* <div className='list'>
-        <h4>{ 글제목[0] } 
-        <span onClick={() => {
-          따봉변경(따봉 + 1)
-        }}> 👍🏻 </span> {따봉} </h4>
-        <p>2월 17일 발행</p>
-      </div>
+    <div className='App'>
 
-      <div className='list'>
-        <h4>{ 글제목[1] }</h4>
-        <p>2월 17일 발행</p>
-      </div>
+      <Navbar bg='light' variant='light'>
+        <Container>
+          <Nav.Link onClick={() => { 
+            navigate('/')
+          }} style={ { fontSize : '25px' , margin : '7px' } }>WONDEREGO</Nav.Link>
 
-      <div className='list'>
-        <h4 onClick={() => {
-          setModal(!modal)
-        }}>{ 글제목[2] }</h4>
-        <p>2월 17일 발행</p>
-      </div> */}
+          <Nav className='me-auto'>
+            <Nav.Link onClick={() => {
+              navigate('/detail')
+            }}>SUNGLASSES</Nav.Link>
 
+            <Nav.Link onClick={() => {
+              navigate('/about')
+            }}>EYEGLASSES</Nav.Link>
 
-      { 
-        글제목.map(function(a ,i) {   
-          return(
-            <div className='list'>
-              <h4 onClick={() => {
-                setModal(!modal); setTitle(i)
-              }}>{글제목[i]} <span onClick={(e) => {
-                e.stopPropagation();
-                let copy = [...따봉];
-                copy[i] = copy[i] + 1;
-                따봉변경(copy)
-              }}> 👍🏻 </span> {따봉[i]} </h4>
-              <p>1월 25일 발행</p>
-              <button onClick={() => {
-                let copy = [...글제목];
-                copy.splice(i , 1);
-                글제목변경(copy);
-              }}>삭제</button>
+            <Nav.Link onClick={() => {
+              navigate('/etc')
+            }}>ACC</Nav.Link>
+            
+            <Nav.Link onClick={() => {
+              navigate('/Login')
+            }} style={ {} }>로그인</Nav.Link>
+            
+            <Nav.Link onClick={() => {
+              navigate('/cart')
+            }}  style={ {} }>CART</Nav.Link>
+
+          </Nav>
+        </Container>
+      </Navbar>
+
+      <Routes>
+        <Route path='/' element={<div>
+          <div className='main-bg'></div>
+            <div>
+              <p>OUR STORY</p> 
             </div>
-          )
-        })
-      }
+        </div>} />
+        <Route path='/detail' element={<Detail />} />
 
-        <input onChange={(e) => { 입력값변경(e.target.value);
+        <Route path='/about' element={<About />} />
 
-        }} />
-        <button onClick={() => {
-          let copy = [...글제목];
-          copy.unshift(입력값);
-          글제목변경(copy)
-        }}>글발행</button>
+        <Route path='/etc' element={<Etc />} />
 
+        <Route path='/cart' element={<Cart />} />
 
+        <Route path='/QA' element={<QA/>} />
+        
+        <Route path='/Ship' element={<Ship />} />
 
-      {
-        modal == true ? <Modal title={title} 글제목={글제목} 글제목변경={글제목변경} /> : null
-      }
+        <Route path='/AS' element={<AS />} />
 
-    </div>
-  );
-}
+        <Route path='/Login' element={<Login />} />
 
-  function Modal(props) {
-    return(
-      <div className='modal'>
-        <h4>{props.글제목[props.title]}</h4>
-        <p>날짜</p>
-        <p>상세내용</p>
+        <Route path='*' element={<div>없는 페이지 입니다.</div>} />
+      </Routes>
+    
+
+      <div className='container'>
+        <div className='row'>
+          <div className='col-md-4'></div>
+          <div className='col-md-4'></div>
+          <div className='col-md-4'></div>
+        </div>
       </div>
-    )
-  }
+      <Footer />
+    </div>
 
-
+ 
+      );
+    }
 
 
 

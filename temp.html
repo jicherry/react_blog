@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 이미지 배열
+    let imgArray = [0, 1,2,3,4,5,6,7,8,9, 10, 11, 12, 13, 14, 15];
+
+    // 화면에 출력되는 이미지
+
+    let printImage = imgArray.slice(0,6);
+
+    console.log(printImage);
+
+    // 더보기를 눌렀어!
+    
+    let printImage2 = imgArray.slice(6,12);
+    console.log(printImage2);
+
+    let copy = printImage.concat(printImage2)
+    //[...printImage , ...printImage2];
+
+    console.log(copy);
+
+
+  </script>
+</head>
+<body>
+</body>
+</html>
