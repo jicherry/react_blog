@@ -48,7 +48,7 @@ function App() {
             }}>EYEGLASSES</Nav.Link>
 
             <Nav.Link onClick={() => {
-              navigate('/etc')
+              navigate('/etc') 
             }}>ACC</Nav.Link>
             
             {
@@ -61,7 +61,7 @@ function App() {
                 navigate('/Login')
               }} style={ {marginLeft: '550px'} }>로그인</Nav.Link>
             }
-           
+          
             <Nav.Link onClick={() => {
               navigate('/cart')
             }}  style={ {} }>CART</Nav.Link>
