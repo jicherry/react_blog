@@ -1,5 +1,7 @@
+import Etcdata from '../Etcdata';
+
 function Etc(){
-    const AccImage = ['acc.PNG', 'acc2.PNG', 'acc3.PNG'];
+
     return (
         <div className="container">
             <div className="row">
@@ -8,11 +10,15 @@ function Etc(){
                 <div className="col-md-6 mt-4" style={ { marginLeft : '10px' , textAlign : 'left'} }>
                     <h4 className="pt-5" style={ {fontWeight : 'bold'} }>Acc</h4>
                     <p>WONDEREGO 만의 감성이 담긴 아이웨어 액세서리를 만나보세요.</p>
-                    <div style={ { display : 'flex' } }>
+                    <div style={ { display: 'flex' } }>
                         {
-                            AccImage.map((props) => {
+                            Etcdata.map((item) => {
                                 return(
-                                    <img src={require(`../img/${props}`)} style={ { padding : '15px' } } ></img>
+                                    <div>
+                                    <img src={require(`../img/${item.image}`)} style={ { padding : '25px' , width: '380px'} } ></img>
+                                    <p style={ { fontWeight: 'bold' , fontSize: '15px' , marginLeft: '28px' , cursor: 'pointer' } }>{item.title}</p>
+                                    <p style={ { fontSize: '13px' , marginLeft: '28px' , cursor: 'pointer' } }>{item.price}</p>
+                                    </div>
                                 )
                             })
                         }

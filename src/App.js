@@ -21,15 +21,22 @@ function App() {
 
   let [shop] = useState();
   let navigate = useNavigate();
+  /* 사용자가 로그인된 상태라면 로그아웃 보여주기'
 
+  사용자가 로그인된 상태라면을 어떻게 알지?
+  -> 로그인할때 로컬 스토리지에 값을 세팅했어
+  로컬 스토리지 값을 읽어서, login이 success라면 로그인된 상태, 아니라면 로그인이 안된 상태
+  */
+  const page = JSON.parse(localStorage.getItem('page'));
+  //alert(page.login);  // <- 로그인
   return (
-    <div className='App'>
+    <div className='App' style={ { display: 'flex' , flexDirection : 'column' , justifyContent: 'space-between' , height: '100vh'} }>
 
       <Navbar bg='light' variant='light'>
         <Container>
           <Nav.Link onClick={() => { 
             navigate('/')
-          }} style={ { fontSize : '25px' , margin : '7px' } }>WONDEREGO</Nav.Link>
+          }} style={ { fontSize : '25px' , margin : '7px'} }>WONDEREGO</Nav.Link>
 
           <Nav className='me-auto'>
             <Nav.Link onClick={() => {
@@ -44,10 +51,17 @@ function App() {
               navigate('/etc')
             }}>ACC</Nav.Link>
             
-            <Nav.Link onClick={() => {
-              navigate('/Login')
-            }} style={ {} }>로그인</Nav.Link>
-            
+            {
+              page && page.login && page.login == 'success'
+              ?  <Nav.Link onClick={() => {
+                localStorage.removeItem('page')
+                navigate('/')
+              }} style={ {marginLeft: '520px'} } >로그아웃</Nav.Link>
+              :  <Nav.Link onClick={() => {
+                navigate('/Login')
+              }} style={ {marginLeft: '550px'} }>로그인</Nav.Link>
+            }
+           
             <Nav.Link onClick={() => {
               navigate('/cart')
             }}  style={ {} }>CART</Nav.Link>
@@ -59,9 +73,9 @@ function App() {
       <Routes>
         <Route path='/' element={<div>
           <div className='main-bg'></div>
-            <div>
-              <p>OUR STORY</p> 
-            </div>
+            {/* <div>
+              <p style={ {cursor: 'pointer' , height: '100px' , background: 'gainsboro', marginBottom: '30px'} }>OUR STORY</p> 
+            </div> */}
         </div>} />
         <Route path='/detail' element={<Detail />} />
 
@@ -93,7 +107,6 @@ function App() {
       <Footer />
     </div>
 
- 
       );
     }
 

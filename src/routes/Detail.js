@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import styled from "styled-components";
-import SunImage from "../data";
+import SunImage from "../Sundata";
 
 // let Img = styled.div`
 //     backgroundigm : ${props  => props.bg };
@@ -18,7 +18,7 @@ function Detail(){
     let printImage = SunImage.slice(0,6);
     let [images , setImages] = useState(printImage);
     
-    console.log('rendering!!');
+    // console.log('rendering!!');
     return (
         <div className="container">
             <div className="row">
@@ -33,19 +33,22 @@ function Detail(){
                             return(
                                 <div>
                                     <img src={require(`../img/${item.image}`)} style={ { padding : '15px', width: '350px', height: '400px' } } ></img>
-                                    <p>{item.title}</p>
+                                    <p style={ { fontWeight: 'bold' , fontSize: '15px' , marginLeft: '15px' , cursor: 'pointer' } }>{item.title}</p>
+                                    <p style={ { fontSize: '13px' , marginLeft: '15px' } }>{item.price}</p>
                                 </div>
                             )
                         })
                     }
                     </div>
+                    <div style={ { display: 'flex' ,  justifyContent: 'center' } }>
                     <button onClick={() => {
                         // printImage에 출력할 배열을 가져온다.(=뒤에 추가할 애들을 가져온다.)
                         // 추가할 배열과 printImage를 이어붙인다.
                         const printImage2 = SunImage.slice(images.length,images.length + 6);
                         const copy = printImage.concat(printImage2);
                         setImages(copy);
-                    }}>더보기</button>
+                    }} style={ {border: 'none', background: 'white'} }>더보기</button>
+                    </div>
                 </div>
             </div>
         </div>

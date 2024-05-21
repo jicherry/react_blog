@@ -14,9 +14,9 @@ import Cart from './routes/Cart.js'
       let navigate = useNavigate();
 
       return(
-        <div className='footer-container' style={ {height : '25 0px', background : 'lightgray'} }>
-          <div className='footer-content' 
-          style={ {display : 'flex' , float: 'left' , display : 'inline-block',} }>
+        <div style={ { display : 'flex' , alignItems: 'flex-start' , justifyContent: 'space-between' , marginTop: '100px' , background: 'gainsboro', padding: '60px'} }>
+          <div className='footer-content'
+          style={ { display : 'inline-block', height: '60px' , textAlign: 'left' } }>
             <h6 style={ { fontWeight : 'bold' } }>고객서비스</h6>
             <p><Nav.Link onClick={() => {
                 navigate('/QA')
@@ -31,18 +31,18 @@ import Cart from './routes/Cart.js'
               }}>A/S 접수</Nav.Link></p>
           </div>
           <div className='footer-content' 
-          style={ {display : 'flex' , float: 'left' , display : 'inline-block'} }>
+          style={ {display : 'flex' , float: 'left' , display : 'inline-block' , textAlign: 'left'} }>
             <h6 style={ { fontWeight : 'bold' } }>Customer Service</h6>
-            <p>제품 및 AS 문의 : cs@carin2014.com</p>
+            <p>문의 : cs@carin2014.com</p>
             <p>운영시간 : 대표 마음대로</p>
-            <p></p>
+      
           </div>
           <div className='footer-content' 
-          style={ {display : 'flex' , float: 'left' , display : 'inline-block'} }>
+          style={ {display : 'flex' , float: 'left' , display : 'inline-block', textAlign: 'left'} }>
             <h6 style={ { fontWeight : 'bold' } }>Company Information</h6>
             <p>대표자명 : 지채빈</p>
-            <p>대표전화번호 : 032 - 345 - 678</p>
-            <p>주소 : 인천시 연수구 송도동</p>
+            <p>대표전화번호 : 032 - 345 - 6789</p>
+            <p>주소 : 인천시</p>
           </div>
         </div>
       )

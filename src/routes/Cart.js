@@ -36,7 +36,7 @@ let dispatch = useDispatch()
                                 </tr>
                                     )
                                 })
-                             }
+                            }
                 </tbody>
             </Table>
         </div>
