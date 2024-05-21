@@ -21,14 +21,7 @@ function App() {
 
   let [shop] = useState();
   let navigate = useNavigate();
-  /* 사용자가 로그인된 상태라면 로그아웃 보여주기'
-
-  사용자가 로그인된 상태라면을 어떻게 알지?
-  -> 로그인할때 로컬 스토리지에 값을 세팅했어
-  로컬 스토리지 값을 읽어서, login이 success라면 로그인된 상태, 아니라면 로그인이 안된 상태
-  */
   const page = JSON.parse(localStorage.getItem('page'));
-  //alert(page.login);  // <- 로그인
   return (
     <div className='App' style={ { display: 'flex' , flexDirection : 'column' , justifyContent: 'space-between' , height: '100vh'} }>
 
