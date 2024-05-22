@@ -7,16 +7,15 @@ import Etc from './routes/Etc.js'
 import About from './routes/About.js'
 import Detail from './routes/Detail.js'
 // import axios from 'axios';
-import Cart from './routes/Cart.js'
 
     function Footer(props){
 
       let navigate = useNavigate();
 
       return(
-        <div style={ { display : 'flex' , alignItems: 'flex-start' , justifyContent: 'space-between' , marginTop: '100px' , background: 'gainsboro', padding: '60px'} }>
+        <div style={ { display : 'flex' , alignItems: 'flex-start' , justifyContent: 'space-between' , marginTop: '50px' , background: 'whitesmoke', padding: '25px'} }>
           <div className='footer-content'
-          style={ { display : 'inline-block', height: '60px' , textAlign: 'left' } }>
+          style={ { display : 'inline-block', height: '50px' , textAlign: 'left' } }>
             <h6 style={ { fontWeight : 'bold' } }>고객서비스</h6>
             <p><Nav.Link onClick={() => {
                 navigate('/QA')

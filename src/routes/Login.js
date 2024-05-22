@@ -39,9 +39,9 @@ function Login(){
                 <button style={ { marginTop: '50px' , borderRadius: '30px' , border:'none' , width: '390px' , height: '30px' , background: 'gainsboro'} } onClick={() => {
                     // 아이디와 비밀번호가 존재하는지 체크
                     if (id == '') {
-                        alert('아이디를 입력하셈')
+                        alert('아이디를 입력하셈요')
                     } else if (password == '') {
-                        alert('비번을 입력하셈')
+                        alert('비번을 입력하셈요')
                     } else {
                         let obj = {login : 'success'}
                         localStorage.setItem('page', JSON.stringify(obj)) // -> JSON 자료로 변환해서

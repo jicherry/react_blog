@@ -7,7 +7,6 @@ import Etc from './routes/Etc.js'
 import About from './routes/About.js'
 import Detail from './routes/Detail.js'
 // import axios from 'axios';
-import Cart from './routes/Cart.js'
 import QA from './routes/QA.js';
 import Ship from './routes/Ship.js';
 import AS from './routes/AS.js';
@@ -54,11 +53,6 @@ function App() {
                 navigate('/Login')
               }} style={ {marginLeft: '550px'} }>로그인</Nav.Link>
             }
-          
-            <Nav.Link onClick={() => {
-              navigate('/cart')
-            }}  style={ {} }>CART</Nav.Link>
-
           </Nav>
         </Container>
       </Navbar>
@@ -75,8 +69,6 @@ function App() {
         <Route path='/about' element={<About />} />
 
         <Route path='/etc' element={<Etc />} />
-
-        <Route path='/cart' element={<Cart />} />
 
         <Route path='/QA' element={<QA/>} />
         
